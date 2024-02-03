@@ -1,6 +1,14 @@
+using namespace std;
+
 #include <time.h>
 #include <ctime>
-using namespace std;
+
+struct userDate
+{
+	int day;
+	int month;
+	int year;
+};
 
 int getDaysInMonth(int month, int year)
 {
@@ -17,25 +25,16 @@ int getDaysInMonth(int month, int year)
 	}
 }
 
-struct userDate
-{
-	int day;
-	int month;
-	int year;
-};
-
-int getDaysEndMonth(struct userDate date) {
-	return getDaysInMonth(date.month, date.year) - date.day;
-}
-
 int getDaysEndMonth(int day, int month, int year) {
 
 	return getDaysInMonth(month, year) - day;
 }
 
-int getDaysEndMonth(int day, int month) {
-	time_t now = time(0);
-	tm* ltm = localtime(&now);
-
-	return getDaysInMonth(month, 1970 + ltm->tm_year) - day;
-}
+//int getDaysEndMonth(struct userDate date) {
+//	return getDaysInMonth(date.month, date.year) - date.day;
+//}
+//
+//
+//int getDaysEndMonth(int day, int month) {
+//	return getDaysInMonth(month, 2024) - day;
+//}
